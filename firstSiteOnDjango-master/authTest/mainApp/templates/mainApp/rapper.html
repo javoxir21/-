@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glavnoe eto dusha</title>
+    {% load staticfiles %}
+    <link rel="stylesheet", href="{% static 'css/bootstrap.min.css' %}", type="text/css">
+        <link rel="stylesheet", href="{% static 'css/khghi.css' %}", type="text/css">
+</head>
+<body class="img-thumbnail">
+<div class="top-bar">
+    <section class="top-bar-section">
+        <ul class="right">
+            {% if username %}
+            <li><a href="http://127.0.0.1:8000/auth/logout">{{ username }} Выйти</a> </li>
+            {% else %}
+            <li><a href="http://127.0.0.1:8000/auth/login">Войти</a> </li>
+            {% endif %}
+        </ul></section>
+            </div>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{% include "mainApp/include/some_html.html" %}</h1>
+      {% block content %}
+      {% endblock %}
+        {% block login %}
+        {% endblock %}
+      <p>
+        <a href="/" class="btn btn-success btn-lg">Главная страница</a>
+        <a href="/news" class="btn btn-primary btn-lg">Новости &raquo;</a>
+        <a href="/contact" class="btn btn-info btn-lg">Контакты &raquo;</a>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+    &copy; Все права защищены 2019
+  </div>
+
+</body>
+</html>
